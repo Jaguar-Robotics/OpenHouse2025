@@ -5,6 +5,8 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Constants;
+import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.subsystems.IntakePivot;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
@@ -17,7 +19,7 @@ public class PivotUp extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    IntakePivot.getInstance().setSetpoint(0);
+    ArmSubsystem.getInstance().setAngle(Constants.IntakeConstants.STOW);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -31,6 +33,6 @@ public class PivotUp extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return IntakePivot.getInstance().atSetpoint();
+    return ArmSubsystem.getInstance().atSetpoint(Constants.IntakeConstants.STOW);
   }
 }

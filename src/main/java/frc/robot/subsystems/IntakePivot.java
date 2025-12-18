@@ -12,10 +12,11 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
+
 public class IntakePivot extends SubsystemBase {
 
   private static IntakePivot instance = new IntakePivot();
-  public TalonFX pivotMotor = new TalonFX(Constants.IntakePivotConstants.PivotMotorID);
+  public TalonFX pivotMotor = new TalonFX(Constants.IntakeConstants.PivotMotorID);
   private TalonFXConfiguration talonFXConfigs = new TalonFXConfiguration();
   private TrapezoidProfile m_Profile;
   private TrapezoidProfile.State m_goal = new TrapezoidProfile.State(0,0);
@@ -27,7 +28,7 @@ public class IntakePivot extends SubsystemBase {
 
     pivotMotor.setControl(m_request);
 
-    m_Profile = new TrapezoidProfile(new TrapezoidProfile.Constraints(0.01, 0.00001));
+    m_Profile = new TrapezoidProfile(new TrapezoidProfile.Constraints(75, 75));
 
     var slot0Configs = talonFXConfigs.Slot0;
     slot0Configs.kG = 0;

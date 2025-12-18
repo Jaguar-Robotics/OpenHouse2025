@@ -13,12 +13,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class IntakeSubsystem extends SubsystemBase {
 
   private static IntakeSubsystem instance = new IntakeSubsystem();
-  public TalonFX IntakeMotor = new TalonFX(Constants.IntakeConstants.IntakeMotorID);
+  public TalonFX IntakeMotor = new TalonFX(Constants.IntakeConstants.IntakeRollerID);
 
   /** Creates a new Intake. */
-  public IntakeSubsystem() {
-
-  }
+  public IntakeSubsystem() {}
 
   public static IntakeSubsystem getInstance(){
     if (instance == null){
